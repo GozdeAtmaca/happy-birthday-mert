@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mert's Birthday!</title>
+    <link rel="stylesheet" href="style.css?v=16">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+</head>
+<body>
+
+    <div id="intro-screen">
+        <div id="gift-wrapper">
+            <div id="gift-box" onclick="openGift()">🎁</div>
+            <p id="click-text">Sürprizi açmak için tıkla!</p>
+        </div>
+    </div>
+
+    <div id="main-content" class="hidden">
+        <h2>İYİ Kİ DOĞDUN MERT MERT!</h2>
+        <p>SANA ÖZEL NOTLARI GÖRMEK İÇİN KALPLERE TIKLA</p>
+
+        <div id="candle-zones">
+            <div class="heart-btn" id="heart-1" onclick="openNote('note1')">❤️</div>
+            <div class="heart-btn" id="heart-2" onclick="openNote('note2')">❤️</div>
+            <div class="heart-btn" id="heart-3" onclick="openNote('note3')">❤️</div>
+            <div class="heart-btn" id="heart-4" onclick="openNote('note4')">❤️</div>
+            <div class="heart-btn" id="heart-5" onclick="openNote('note5')">❤️</div>
+        </div>
+
+        <div id="secret-box" onclick="openPasswordModal()">🔒 Özel Oda</div>
+    </div>
+
+    <div id="note-modal" style="display: none; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(0, 0, 0, 0.7); z-index: 9999; justify-content: center; align-items: center;">
+        <div style="background: #fcf9f2; padding: 40px; border-radius: 15px; width: 90%; max-width: 650px; text-align: center; position: relative; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
+            <span onclick="closeNote()" style="position: absolute; top: 10px; right: 20px; font-size: 30px; font-weight: bold; color: #555; cursor: pointer;">&times;</span>
+            <p id="modal-text" style="font-size: 18px; color: #333; margin-top: 10px; white-space: pre; text-align: left; display: inline-block; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">Not yükleniyor...</p>
+            <p id="modal-author" style="font-style: italic; font-weight: bold; text-align: right; color: #333; margin-top: 20px;">- İsim</p>
+        </div>
+    </div>
+
+    <div id="password-modal" style="display: none; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(0, 0, 0, 0.8); z-index: 10000; justify-content: center; align-items: center;">
+        <div style="background: #fff; padding: 30px; border-radius: 15px; width: 85%; max-width: 350px; text-align: center; position: relative; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
+            <span onclick="closePasswordModal()" style="position: absolute; top: 10px; right: 20px; font-size: 25px; font-weight: bold; color: #888; cursor: pointer;">&times;</span>
+            <h3 style="margin-top: 10px; color: #2c3e50;">🔒 Sadece Bizim Bilgimiz!</h3>
+            
+            <p id="secret-question" style="font-size: 16px; color: #555; margin-bottom: 20px;">Birlikte gittiğimiz ilk tatil yeri neresiydi? (Hepsi küçük harf)</p>
+            
+            <input type="text" id="password-input" placeholder="Cevabını buraya yaz..." style="width: 90%; padding: 10px; font-size: 16px; border: 2px solid #ddd; border-radius: 8px; outline: none; text-align: center; margin-bottom: 15px;">
+            <br>
+            <button onclick="checkPassword()" style="background: #ff4757; color: white; border: none; padding: 10px 25px; font-size: 16px; font-weight: bold; border-radius: 8px; cursor: pointer; transition: background 0.2s;">Giriş Yap</button>
+            <p id="error-msg" style="color: red; font-size: 14px; margin-top: 10px; display: none;">Hatalı cevap, tekrar dene sevgilim! 😢</p>
+        </div>
+    </div>
+
+    <div id="secret-screen" class="hidden" style="min-height: 100vh; width: 100vw; background-color: #f5f0e1; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 20px; box-sizing: border-box;">
+        <div style="background: #fff; padding: 40px; border-radius: 20px; max-width: 600px; width: 90%; box-shadow: 0 10px 40px rgba(0,0,0,0.15); text-align: left; line-height: 1.6; border: 1px solid #e6dfcc;">
+            <h1 style="color: #ff4757; text-align: center; margin-bottom: 30px;">❤️ Sana Özel Bir Not...</h1>
+            
+            <p style="font-size: 18px; color: #333;">Canım sevgilim,</p>
+            <p style="font-size: 18px; color: #333; margin-top: 15px;">Şifreyi doğru bilip buraya gelebildiğine göre biz gerçekten harika bir takımız. Sana sahip olduğum halde seni tekrar tekrar kazanmaya çalışmaktan bıkmayacağım.Seninle tanışmadan önce bir şeye sımsıkı tutunup onu hiç kaybetmemenin nasıl bir his olduğunu yaşamak istiyordum ve artık sen varsın. Benim için çabalamaktan asla korkmadığın için , beni her gün sadece varlığınla bile mutlu ettiğin için, her ihtiyacım olduğunda orada olduğun için, her şeyi heyecanla sana anlatabildiğim için, ben herkesten ve her şeyden kaçarken beni yakalayabildiğin için ve en öenmlisi aşağı inince asansörü benim olduğum kata yukarıya gönderdiğin için teşekkür ederim aşşşkımm. Ben her doğum günümde, kayan bir yıldız gördüğümde, yılbaşında , elime uğur böceği konduğunda, her pasta mumuna baktığımda seni dileyeceğim.İyi ki doğdun, iyi ki benim sevgilim oldun. Nice mutlu, aşk dolu yaşlarımıza...SENİ ÇOK SEVİYORUM DALLAMAM <3</p>
+            
+            <div style="text-align: center; margin-top: 40px;">
+                <button onclick="backToCake()" style="background: #2c3e50; color: white; border: none; padding: 10px 20px; font-size: 15px; border-radius: 8px; cursor: pointer;">Geri Dön</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openGift() {
+            document.getElementById('intro-screen').classList.add('fade-out');
+            
+            // İlk sayfadan çıkarken arka planı değiştiriyoruz ki pasta görseli tam o an yüklenmeye başlasın!
+            document.body.classList.add('show-cake');
+            
+            setTimeout(() => {
+                document.getElementById('intro-screen').style.display = 'none';
+                document.getElementById('main-content').classList.remove('hidden');
+                document.getElementById('main-content').classList.add('fade-in');
+                // Sadece ikinci sayfanın yerleşiminde flex veriyoruz
+                document.getElementById('main-content').style.display = 'flex';
+                fireConfetti();
+            }, 500);
+        }
+
+        function fireConfetti() {
+            var duration = 8 * 1000; 
+            var animationEnd = Date.now() + duration;
+            var defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 0, scalar: 2 };
+            function randomInRange(min, max) { return Math.random() * (max - min) + min; }
+            var interval = setInterval(function() {
+              var timeLeft = animationEnd - Date.now();
+              if (timeLeft <= 0) { return clearInterval(interval); }
+              var particleCount = 50 * (timeLeft / duration);
+              confetti(Object.assign({}, defaults, { particleCount, origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 } }));
+              confetti(Object.assign({}, defaults, { particleCount, origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 } }));
+            }, 250);
+        }
+
+        const notesData = {
+    'note1': {
+        text: `Mertin doğum günü bugün,yüzlerde tatlı bir gülümseme,
+Eski yıllar geride, yeni yaş umut gibi önce
+Rüzgar güzel esiyor, Gözde yanında her şey yerinde
+Tebrikler, kalbin gibi temiz bir yıl olsun.
+
+Gözde ile uyumunuz göz gibi değil, gönül gibi
+Öyle sessiz değil, içten ve güzel bir sevgi,
+Zaman sizi yormasın, sadece güzellik katsın
+Doğum günü bahane, siz zaten hikayenin en güzel kısmı
+El ele, gönül gönüle, nice mutlu yıllara...`,
+        author: "-Umut ARABACI"
+    },
+
+    'note2': {
+        text: `İyi ki doğdun Mertim. 
+Bir yaş daha aldın ama merak etme hala genç görünüyorsun...uzaktan..`,
+        author: "-Harun"
+    },
+
+    'note3': {
+        text: `Geldiğin noktadan Muradiye Hoca bile guru duyardı.
+Yeni yaşın gurur dolu anlar getirsin. İyi ki doğdun öz kardeşim.. `,
+        author: "-Yusuf"
+    },
+    
+    'note4': {
+        text: `Kardeşim benim doğum günün kutlu olsun.
+Seninle nice Çorum yolculuklarına...
+Traktöre binemesek de devam.. `,
+        author: "-Özgür"
+    },
+
+    'note5': {
+        text: `İyi ki doğdun Mert'im. Hayatıma ve bana kattığın her şey
+için çok teşekkür ederim. Sen benim tanıdığım en iyi kalpli adamsın.
+İyi ki seni tanımışım iyi ki dostum olmuşsun hatta dosttan öte iyi ki
+kardeşimsin. Tekrardan iyi ki doğdun cansın.
+Seni seviyoruuuu. `,
+        author: "-Saltuk"
+    }
+}        
+
+        function openNote(noteId) {
+            document.getElementById('modal-text').innerText = notesData[noteId].text;
+            document.getElementById('modal-author').innerText = notesData[noteId].author;
+            document.getElementById('note-modal').style.display = 'flex'; 
+        }
+
+        function closeNote() {
+            document.getElementById('note-modal').style.display = 'none';
+        }
+
+        function openPasswordModal() {
+            document.getElementById('password-modal').style.display = 'flex';
+            document.getElementById('password-input').value = "";
+            document.getElementById('error-msg').style.display = 'none';
+        }
+
+        function closePasswordModal() {
+            document.getElementById('password-modal').style.display = 'none';
+        }
+
+        function checkPassword() {
+            const userInput = document.getElementById('password-input').value.trim().toLowerCase();
+            const correctAnswer = "mersin"; 
+
+            if (userInput === correctAnswer) {
+                document.getElementById('password-modal').style.display = 'none';
+                document.getElementById('main-content').style.display = 'none';
+                
+                let secretScreen = document.getElementById('secret-screen');
+                secretScreen.classList.remove('hidden');
+                secretScreen.style.display = 'flex';
+                
+                confetti({ particleCount: 150, spread: 80, origin: { y: 0.6 } });
+            } else {
+                document.getElementById('error-msg').style.display = 'block';
+            }
+        }
+
+        function backToCake() {
+            document.getElementById('secret-screen').style.display = 'none';
+            document.getElementById('secret-screen').classList.add('hidden');
+            document.getElementById('main-content').style.display = 'flex';
+        }
+    </script>
+</body>
+</html>
