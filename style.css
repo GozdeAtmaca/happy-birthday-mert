@@ -8,6 +8,7 @@ body {
     overflow-x: hidden;
 }
 
+
 /* YENİ: Hediye kutusu açıldığında body'ye eklenecek pasta arka planı */
 body.show-cake {
     background-image: url('cake-bg.png');
@@ -181,7 +182,7 @@ body.show-cake {
     }
     
     body.show-cake {
-        background-position: 65% center; /* Pastayı dikey ekranda daha iyi ortalar */
+        background-position: 55% center; /* Pastayı dikey ekranda daha iyi ortalar */
     }
 
     /* 1. EKRAN: Karşılama Ekranı (Anı Defteri ve Hediye) */
@@ -220,11 +221,11 @@ body.show-cake {
     }
 
     /* Kalpler dikey ve dar ekran formatına göre optimize edildi */
-    #heart-1 { top: 25%; left: 15%; right: auto; }
-    #heart-2 { top: 40%; right: 15%; left: auto; }
-    #heart-3 { top: 55%; left: 20%; right: auto; }
+    #heart-1 { top: 27%; left: 15%; right: auto; }
+    #heart-2 { top: 35%; right: 15%; left: auto; }
+    #heart-3 { top: 50%; left: 50%; right: auto; }
     #heart-4 { top: 70%; right: 20%; left: auto; }
-    #heart-5 { top: 80%; left: 45%; right: auto; }
+    #heart-5 { top: 78%; left: 25%; right: auto; }
 
     /* Arkadaş Notları Pencerelerinin Mobil Ayarı */
     #note-modal > div {
